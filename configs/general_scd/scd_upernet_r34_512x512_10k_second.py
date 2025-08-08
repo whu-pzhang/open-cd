@@ -17,16 +17,15 @@ model = dict(
 
 # optimizer
 param_scheduler = [
-    # dict(
-    #     type='LinearLR', start_factor=1e-6, by_epoch=False, begin=0, end=1000),
+    dict(type="LinearLR", start_factor=1e-6, by_epoch=False, begin=0, end=1000),
     dict(
         type="PolyLR",
         power=0.9,
-        begin=0,
+        begin=1000,
         end=10000,
         eta_min=1e-5,
         by_epoch=False,
-    )
+    ),
 ]
 
 optimizer = dict(type="AdamW", lr=0.0005, betas=(0.9, 0.999), weight_decay=0.05)
